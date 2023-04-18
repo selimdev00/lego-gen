@@ -21,7 +21,7 @@ const nav = ref<HeaderNavItem[]>([
 <template>
   <header class="header__wrapper dark:bg-black">
     <div class="xl:container mx-auto">
-      <div class="header flex items-center justify-between py-4">
+      <div class="header flex items-center justify-between py-8">
         <router-link
           to="/"
           class="header__logo flex gap-3 dark:text-white font-bold hover:opacity-50 ease-linear duration-150"
@@ -51,11 +51,12 @@ const nav = ref<HeaderNavItem[]>([
           </nav>
 
           <div class="header__panel">
-            <button
+            <router-link
+              to="/generate"
               class="bg-violet-700 py-2 px-6 rounded-xl dark:text-white font-bold hover:opacity-50 ease-linear duration-150"
             >
               Generate
-            </button>
+            </router-link>
           </div>
         </div>
       </div>

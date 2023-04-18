@@ -7,6 +7,14 @@ const router = createRouter({
       path: "/",
       component: () => import("@/pages/index.vue"),
     },
+    {
+      path: "/about",
+      component: () => import("@/pages/about/index.vue"),
+    },
+    {
+      path: "/generate",
+      component: () => import("@/pages/generate/index.vue"),
+    },
   ],
 });
 

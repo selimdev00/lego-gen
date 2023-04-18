@@ -2,5 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CONFIG */
 @import "config/fonts";
+
+/* BASE */
+@import "base/transitions";
 @import "base/layout";
