@@ -42,7 +42,7 @@ const nav = ref<HeaderNavItem[]>([
               <li v-for="(item, index) in nav" :key="`${item.name}-${index}`">
                 <router-link
                   :to="item.path"
-                  class="dark:text-white hover:opacity-50 ease-linear duration-150"
+                  class="uppercase text-xs dark:text-white hover:opacity-50 ease-linear duration-150"
                 >
                   {{ item.name }}
                 </router-link>
@@ -53,7 +53,7 @@ const nav = ref<HeaderNavItem[]>([
           <div class="header__panel">
             <router-link
               to="/generate"
-              class="bg-violet-700 py-2 px-6 rounded-xl dark:text-white font-bold hover:opacity-50 ease-linear duration-150"
+              class="uppercase text-xs bg-violet-700 py-2 px-6 rounded-xl dark:text-white font-bold hover:opacity-50 ease-linear duration-150"
             >
               Generate
             </router-link>

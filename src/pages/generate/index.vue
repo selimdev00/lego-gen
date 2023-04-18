@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HomeGreeter from "@/components/HomeGreeter/index.vue";
+import HomeGreeter from "@/components/Generator/index.vue";
 </script>
 
 <template>
