@@ -3,7 +3,7 @@ import { ref, watch } from "vue";
 
 import { useRoute, onBeforeRouteUpdate } from "vue-router";
 
-import { Tops, Heads, Mouths } from "./elements";
+import { Tops, Heads, Mouths, Glasses } from "./elements";
 import type { Element } from "./types";
 
 const route = useRoute();
@@ -23,6 +23,7 @@ const initElements = (elementType: string | boolean): void => {
     Head: Heads,
     Top: Tops,
     Mouth: Mouths,
+    Glasses: Glasses,
   };
 
   if (elementType) {

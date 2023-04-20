@@ -32,6 +32,7 @@ export interface Character {
   Top: string | null;
   Head: string | null;
   Mouth: string | null;
+  Glasses: string | null;
 }
 
 export interface ElementTypeItem {

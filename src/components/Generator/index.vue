@@ -5,6 +5,8 @@ import ChooseGender from "./ChooseGender.vue";
 import ElementTypeSidebar from "./ElementTypeSidebar.vue";
 import ElementSlider from "./ElementSlider.vue";
 
+import elements from "./elements";
+
 import type {
   GenderOption,
   Character,
@@ -67,6 +69,28 @@ const setElement = (type: Element): void => {
 };
 
 const character = ref<Character>({});
+const initCharacter = (): void => {
+  const { Top, Head, Mouth, Glasses } = route.query as object;
+
+  if (Top) {
+    character.value.Top = elements.Tops.find((e) => e.name === Top).icon;
+  }
+
+  if (Head) {
+    character.value.Head = elements.Heads.find((e) => e.name === Head).icon;
+  }
+
+  if (Mouth) {
+    character.value.Mouth = elements.Mouths.find((e) => e.name === Mouth).icon;
+  }
+
+  if (Glasses) {
+    character.value.Glasses = elements.Glasses.find(
+      (e) => e.name === Glasses
+    ).icon;
+  }
+};
+initCharacter();
 </script>
 
 <template>
@@ -88,6 +112,10 @@ const character = ref<Character>({});
 
           <div class="absolute generator__character__mouth element">
             <img :src="character?.Mouth" alt="" />
+          </div>
+
+          <div class="absolute generator__character__glasses element">
+            <img :src="character?.Glasses" alt="" />
           </div>
         </div>
 
@@ -135,6 +163,10 @@ const character = ref<Character>({});
 
     &__mouth {
       top: 225px;
+    }
+
+    &__glasses {
+      top: 194px;
     }
   }
 }

@@ -2,6 +2,7 @@
 import Head from "./elements/Head/Head.svg";
 import Top from "./elements/Tops/Styled.svg";
 import Mouth from "./elements/Mouths/Smile.svg";
+import Glasses from "./elements/Glasses/Plain.svg";
 
 import { ref } from "vue";
 import { useRoute } from "vue-router";
@@ -26,6 +27,11 @@ const items: ElementTypeItem[] = [
     name: "Mouth",
     icon: Mouth,
     value: "Mouth",
+  },
+  {
+    name: "Glasses",
+    icon: Glasses,
+    value: "Glasses",
   },
 ];
 
