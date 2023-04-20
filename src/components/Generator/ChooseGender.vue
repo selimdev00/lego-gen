@@ -1,32 +1,11 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-import { male, female, any } from "@/assets/icons";
+import { genders } from "./types";
 
 import type { GenderOption } from "./types";
 
 const emit = defineEmits(["choose"]);
-
-const options = ref<GenderOption[]>([
-  {
-    name: "Male ♂️",
-    description: "Generate male character",
-    value: "male",
-    icon: male,
-  },
-  {
-    name: "Female ♀️",
-    description: "Generate female character",
-    value: "female",
-    icon: female,
-  },
-  {
-    name: "Who cares? 🤔",
-    description: "Generate monster",
-    value: "any",
-    icon: any,
-  },
-]);
 
 const gender = ref<GenderOption>();
 
@@ -47,7 +26,7 @@ const genderSelected = (item: GenderOption): boolean => {
   <div class="flex flex-col gap-8">
     <div class="columns-3 self-center mt-10">
       <div
-        v-for="(item, index) in options"
+        v-for="(item, index) in genders"
         :key="`${item.value}-${index}`"
         class="card flex flex-col items-center justify-center gap-6 w-full p-8 border-2 border-white rounded-xl text-center"
       >

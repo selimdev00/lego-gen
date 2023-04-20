@@ -1,15 +1,56 @@
 <script lang="ts" setup>
-import tops from "@/assets/elements/Tops";
+import { ref, watch } from "vue";
 
-import { Swiper, SwiperSlide } from "swiper/vue";
+import { useRoute, onBeforeRouteUpdate } from "vue-router";
+
+import { Tops, Heads, Mouths } from "./elements";
+import type { Element } from "./types";
+
+const route = useRoute();
+
+const emit = defineEmits(["setElement"]);
+
+const setElement = (element: object): void => {
+  emit("setElement", element);
+};
+
+const elements = ref<Element[]>([]);
+
+const initElements = (elementType: string | boolean): void => {
+  if (!elementType) elementType = route.query?.["element-type"] as string;
+
+  const ref = {
+    Head: Heads,
+    Top: Tops,
+    Mouth: Mouths,
+  };
+
+  if (elementType) {
+    elements.value = ref[elementType];
+  }
+};
+
+onBeforeRouteUpdate((to, from) => {
+  initElements(to.query["element-type"] as string);
+});
+
+initElements(false);
 </script>
 
 <template>
-  <div>
-    <swiper :slides-per-view="3" :space-between="50">
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-    </swiper>
-  </div>
+  <swiper-container
+    class="w-full h-20"
+    slides-per-view="6"
+    space-between="14"
+    centered-slides="true"
+  >
+    <swiper-slide v-for="(top, index) in elements" :key="`top-${index}`">
+      <div
+        class="h-full bg-zinc-800 rounded-lg flex items-center justify-center cursor-pointer hover:opacity-50 ease-linear duration-150"
+        @click="setElement(top)"
+      >
+        <img :src="top.icon" alt="" class="h-4/5" />
+      </div>
+    </swiper-slide>
+  </swiper-container>
 </template>

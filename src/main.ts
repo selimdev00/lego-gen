@@ -24,4 +24,8 @@ const loadSystemTheme = () => {
 };
 
 loadSystemTheme();
+
+import { register } from "swiper/element/bundle";
+register();
+
 app.mount("#app");
