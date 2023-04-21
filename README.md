@@ -13,4 +13,5 @@
 
 ## Ссылка на проект
 GitHub: https://github.com/richiedev666/lego-gen <br>
-Ссылка на сайт: https://lego-gen.vercel.app/
+Ссылка на сайт: https://lego-gen.vercel.app/ <br>
+Ссылка на архив: https://disk.yandex.ru/d/8cjhi2G8CKpgYQ
