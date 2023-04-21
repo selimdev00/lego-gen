@@ -31,9 +31,9 @@ const nav = ref<HeaderNavItem[]>([
           <span>G</span>
           <span>O</span>
           <span>|</span>
-          <span>G</span>
-          <span>E</span>
-          <span>N</span>
+          <span class="text-violet-700">G</span>
+          <span class="text-violet-700">E</span>
+          <span class="text-violet-700">N</span>
         </router-link>
 
         <div class="flex items-center gap-6">
