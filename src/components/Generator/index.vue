@@ -87,6 +87,7 @@ const initCharacter = (): void => {
   setCharacterProp("Background", elements.Backgrounds);
   setCharacterProp("Pet", elements.Pets);
 };
+
 initCharacter();
 </script>
 
