@@ -70,7 +70,8 @@ const setElement = (type: Element): void => {
 
 const character = ref<Character>({});
 const initCharacter = (): void => {
-  const { Top, Head, Mouth, Glasses } = route.query as object;
+  const { Top, Head, Mouth, Glasses, Eyes, Eyebrows, Body, Background, Pet } =
+    route.query as object;
 
   if (Top) {
     character.value.Top = elements.Tops.find((e) => e.name === Top).icon;
@@ -88,6 +89,30 @@ const initCharacter = (): void => {
     character.value.Glasses = elements.Glasses.find(
       (e) => e.name === Glasses
     ).icon;
+  }
+
+  if (Eyes) {
+    character.value.Eyes = elements.Eyes.find((e) => e.name === Eyes).icon;
+  }
+
+  if (Eyebrows) {
+    character.value.Eyebrows = elements.Eyebrows.find(
+      (e) => e.name === Eyebrows
+    ).icon;
+  }
+
+  if (Body) {
+    character.value.Body = elements.Bodies.find((e) => e.name === Body).icon;
+  }
+
+  if (Background) {
+    character.value.Background = elements.Backgrounds.find(
+      (e) => e.name === Background
+    ).icon;
+  }
+
+  if (Pet) {
+    character.value.Pet = elements.Pets.find((e) => e.name === Pet).icon;
   }
 };
 initCharacter();
@@ -117,6 +142,26 @@ initCharacter();
           <div class="absolute generator__character__glasses element">
             <img :src="character?.Glasses" alt="" />
           </div>
+
+          <div class="absolute generator__character__eyes element">
+            <img :src="character?.Eyes" alt="" />
+          </div>
+
+          <div class="absolute generator__character__eyebrows element">
+            <img :src="character?.Eyebrows" alt="" />
+          </div>
+
+          <div class="absolute generator__character__body element">
+            <img :src="character?.Body" alt="" />
+          </div>
+
+          <div class="absolute generator__character__background element">
+            <img :src="character?.Background" alt="" />
+          </div>
+
+          <div class="absolute generator__character__pet element">
+            <img :src="character?.Pet" alt="" />
+          </div>
         </div>
 
         <ElementSlider class="mt-auto bottom-0" @set-element="setElement" />
@@ -143,6 +188,7 @@ initCharacter();
     height: 440px;
     width: 440px;
     position: relative;
+    overflow: hidden;
 
     img {
       max-width: unset;
@@ -151,6 +197,7 @@ initCharacter();
     .element {
       left: 50%;
       transform: translateX(-50%);
+      z-index: 2;
     }
 
     &__head {
@@ -167,6 +214,35 @@ initCharacter();
 
     &__glasses {
       top: 194px;
+    }
+
+    &__eyes {
+      top: 194px;
+    }
+
+    &__eyebrows {
+      top: 176px;
+    }
+
+    &__body {
+      top: 297px;
+    }
+
+    &__background {
+      left: 0;
+      top: 0;
+      z-index: 1 !important;
+    }
+
+    &__pet {
+      left: -88px !important;
+      top: 310px;
+      transform: rotate(-20deg) !important;
+
+      img {
+        width: 290px;
+        height: 184px;
+      }
     }
   }
 }

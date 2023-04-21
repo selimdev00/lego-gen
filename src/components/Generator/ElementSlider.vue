@@ -1,9 +1,19 @@
 <script lang="ts" setup>
-import { ref, watch } from "vue";
+import { ref } from "vue";
 
 import { useRoute, onBeforeRouteUpdate } from "vue-router";
 
-import { Tops, Heads, Mouths, Glasses } from "./elements";
+import {
+  Tops,
+  Heads,
+  Mouths,
+  Glasses,
+  Eyes,
+  Eyebrows,
+  Bodies,
+  Backgrounds,
+  Pets,
+} from "./elements";
 import type { Element } from "./types";
 
 const route = useRoute();
@@ -24,6 +34,11 @@ const initElements = (elementType: string | boolean): void => {
     Top: Tops,
     Mouth: Mouths,
     Glasses: Glasses,
+    Eyes: Eyes,
+    Eyebrows: Eyebrows,
+    Body: Bodies,
+    Background: Backgrounds,
+    Pet: Pets,
   };
 
   if (elementType) {

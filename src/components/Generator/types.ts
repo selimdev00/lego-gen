@@ -33,6 +33,11 @@ export interface Character {
   Head: string | null;
   Mouth: string | null;
   Glasses: string | null;
+  Eyes: string | null;
+  Eyebrows: string | null;
+  Body: string | null;
+  Background: string | null;
+  Pet: string | null;
 }
 
 export interface ElementTypeItem {

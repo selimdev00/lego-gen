@@ -3,6 +3,11 @@ import Head from "./elements/Head/Head.svg";
 import Top from "./elements/Tops/Styled.svg";
 import Mouth from "./elements/Mouths/Smile.svg";
 import Glasses from "./elements/Glasses/Plain.svg";
+import Eyes from "./elements/Eyes/Normal.svg";
+import Eyebrows from "./elements/Eyebrows/Thick.svg";
+import Body from "./elements/Bodies/Plain.svg";
+import Background from "./elements/Backgrounds/Solid.svg";
+import Pet from "./elements/Pets/Raptor.svg";
 
 import { ref } from "vue";
 import { useRoute } from "vue-router";
@@ -32,6 +37,31 @@ const items: ElementTypeItem[] = [
     name: "Glasses",
     icon: Glasses,
     value: "Glasses",
+  },
+  {
+    name: "Eyes",
+    icon: Eyes,
+    value: "Eyes",
+  },
+  {
+    name: "Eyebrows",
+    icon: Eyebrows,
+    value: "Eyebrows",
+  },
+  {
+    name: "Body",
+    icon: Body,
+    value: "Body",
+  },
+  {
+    name: "Background",
+    icon: Background,
+    value: "Background",
+  },
+  {
+    name: "Pet",
+    icon: Pet,
+    value: "Pet",
   },
 ];
 
