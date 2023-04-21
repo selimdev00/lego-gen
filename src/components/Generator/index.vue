@@ -126,7 +126,7 @@ initCharacter();
       <ElementTypeSidebar @set-element-type="setElementType" />
 
       <div class="generator__main flex flex-col gap-3">
-        <div class="generator__character">
+        <div id="character" class="generator__character">
           <div class="absolute generator__character__head element">
             <img :src="character?.Head" alt="" />
           </div>
@@ -159,7 +159,10 @@ initCharacter();
             <img :src="character?.Background" alt="" />
           </div>
 
-          <div class="absolute generator__character__pet element">
+          <div
+            v-if="character.Pet"
+            class="absolute generator__character__pet element"
+          >
             <img :src="character?.Pet" alt="" />
           </div>
         </div>

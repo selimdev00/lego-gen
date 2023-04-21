@@ -7,8 +7,9 @@ import router from "./router";
 app.use(router);
 
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { FaChevronRight } from "oh-vue-icons/icons";
-addIcons(FaChevronRight);
+import { FaChevronRight, FaSave, FaFileExport } from "oh-vue-icons/icons";
+
+addIcons(FaChevronRight, FaSave, FaFileExport);
 app.component("v-icon", OhVueIcon);
 
 const loadSystemTheme = () => {
