@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import ChooseGender from "./ChooseGender.vue";
 import ElementTypeSidebar from "./ElementTypeSidebar.vue";
@@ -57,7 +57,7 @@ const setElementType = (type: ElementTypeItem): void => {
 };
 
 const setElement = (type: Element): void => {
-  const elementType = route.query["element-type"] as string;
+  const elementType = route.query["element-type"] as keyof Character;
 
   pushToQuery({
     key: elementType,
@@ -68,52 +68,24 @@ const setElement = (type: Element): void => {
   character.value[elementType] = type.icon;
 };
 
-const character = ref<Character>({});
+const character = ref<Character>({} as Character);
 const initCharacter = (): void => {
-  const { Top, Head, Mouth, Glasses, Eyes, Eyebrows, Body, Background, Pet } =
-    route.query as object;
+  if (!character.value) return;
 
-  if (Top) {
-    character.value.Top = elements.Tops.find((e) => e.name === Top).icon;
-  }
+  const setCharacterProp = (propName: keyof Character, elements: any[]) => {
+    const element = elements.find((e) => e.name === route.query[propName]);
+    if (element) character.value[propName] = element.icon;
+  };
 
-  if (Head) {
-    character.value.Head = elements.Heads.find((e) => e.name === Head).icon;
-  }
-
-  if (Mouth) {
-    character.value.Mouth = elements.Mouths.find((e) => e.name === Mouth).icon;
-  }
-
-  if (Glasses) {
-    character.value.Glasses = elements.Glasses.find(
-      (e) => e.name === Glasses
-    ).icon;
-  }
-
-  if (Eyes) {
-    character.value.Eyes = elements.Eyes.find((e) => e.name === Eyes).icon;
-  }
-
-  if (Eyebrows) {
-    character.value.Eyebrows = elements.Eyebrows.find(
-      (e) => e.name === Eyebrows
-    ).icon;
-  }
-
-  if (Body) {
-    character.value.Body = elements.Bodies.find((e) => e.name === Body).icon;
-  }
-
-  if (Background) {
-    character.value.Background = elements.Backgrounds.find(
-      (e) => e.name === Background
-    ).icon;
-  }
-
-  if (Pet) {
-    character.value.Pet = elements.Pets.find((e) => e.name === Pet).icon;
-  }
+  setCharacterProp("Top", elements.Tops);
+  setCharacterProp("Head", elements.Heads);
+  setCharacterProp("Mouth", elements.Mouths);
+  setCharacterProp("Glasses", elements.Glasses);
+  setCharacterProp("Eyes", elements.Eyes);
+  setCharacterProp("Eyebrows", elements.Eyebrows);
+  setCharacterProp("Body", elements.Bodies);
+  setCharacterProp("Background", elements.Backgrounds);
+  setCharacterProp("Pet", elements.Pets);
 };
 initCharacter();
 </script>

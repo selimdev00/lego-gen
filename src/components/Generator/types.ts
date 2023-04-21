@@ -29,15 +29,15 @@ export const genders: GenderOption[] = [
 ];
 
 export interface Character {
-  Top: string | null;
-  Head: string | null;
-  Mouth: string | null;
-  Glasses: string | null;
-  Eyes: string | null;
-  Eyebrows: string | null;
-  Body: string | null;
-  Background: string | null;
-  Pet: string | null;
+  Top: string | undefined;
+  Head: string | undefined;
+  Mouth: string | undefined;
+  Glasses: string | undefined;
+  Eyes: string | undefined;
+  Eyebrows: string | undefined;
+  Body: string | undefined;
+  Background: string | undefined;
+  Pet: string | undefined;
 }
 
 export interface ElementTypeItem {

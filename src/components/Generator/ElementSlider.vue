@@ -16,6 +16,18 @@ import {
 } from "./elements";
 import type { Element } from "./types";
 
+interface SliderOptions {
+  Head: Element[];
+  Top: Element[];
+  Mouth: Element[];
+  Glasses: Element[];
+  Eyes: Element[];
+  Eyebrows: Element[];
+  Body: Element[];
+  Background: Element[];
+  Pet: Element[];
+}
+
 const route = useRoute();
 
 const emit = defineEmits(["setElement"]);
@@ -29,7 +41,7 @@ const elements = ref<Element[]>([]);
 const initElements = (elementType: string | boolean): void => {
   if (!elementType) elementType = route.query?.["element-type"] as string;
 
-  const ref = {
+  const ref: SliderOptions = {
     Head: Heads,
     Top: Tops,
     Mouth: Mouths,
@@ -42,7 +54,7 @@ const initElements = (elementType: string | boolean): void => {
   };
 
   if (elementType) {
-    elements.value = ref[elementType];
+    elements.value = ref[elementType as keyof typeof ref] as Element[];
   }
 };
 
