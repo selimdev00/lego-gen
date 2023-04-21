@@ -3,11 +3,17 @@ import { ref } from "vue";
 
 import { genders } from "./types";
 
-import type { GenderOption } from "./types";
+import { useRoute } from "vue-router";
+import { useRouter } from "vue-router";
+
+import type { GenderOption, QueryItem } from "./types";
 
 const emit = defineEmits(["choose"]);
 
 const gender = ref<GenderOption>();
+
+const route = useRoute();
+const router = useRouter();
 
 const nextStep = (): void => {
   emit("choose", gender.value);
@@ -15,6 +21,16 @@ const nextStep = (): void => {
 
 const setGender = (item: GenderOption): void => {
   gender.value = item;
+
+  pushToQuery({ key: "gender", value: item.value });
+};
+
+const pushToQuery = ({ key, value }: QueryItem) => {
+  const currentQuery = { ...route.query };
+
+  currentQuery[key] = value;
+
+  router.replace({ query: currentQuery });
 };
 
 const genderSelected = (item: GenderOption): boolean => {

@@ -12,6 +12,7 @@ import type {
   Character,
   ElementTypeItem,
   Element,
+  QueryItem,
 } from "./types";
 import { genders } from "./types";
 
@@ -31,11 +32,6 @@ function initGender(): void {
       gender.value = option;
     }
   }
-}
-
-interface QueryItem {
-  key: string;
-  value: string;
 }
 
 const pushToQuery = ({ key, value }: QueryItem) => {
