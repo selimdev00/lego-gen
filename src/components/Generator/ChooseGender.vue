@@ -39,7 +39,7 @@ const genderSelected = (item: GenderOption): boolean => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-8">
+  <div class="flex flex-col gap-8 px-4 pb-8">
     <div class="columns-3 self-center mt-10">
       <div
         v-for="(item, index) in genders"

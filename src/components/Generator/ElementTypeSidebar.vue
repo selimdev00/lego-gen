@@ -139,7 +139,7 @@ const exportAsPNG = () => {
       </ul>
     </div>
 
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2 mt-8">
       <p class="text-center">
         Your current session is being saved automatically in URL 👌
       </p>

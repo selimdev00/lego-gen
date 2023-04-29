@@ -20,7 +20,7 @@ const nav = ref<HeaderNavItem[]>([
 
 <template>
   <header class="header__wrapper dark:bg-black">
-    <div class="xl:container mx-auto">
+    <div class="xl:container mx-auto px-2">
       <div class="header flex items-center justify-between py-8">
         <router-link
           to="/"
@@ -53,7 +53,7 @@ const nav = ref<HeaderNavItem[]>([
           <div class="header__panel">
             <router-link
               to="/generate"
-              class="uppercase text-xs bg-violet-700 py-2 px-6 rounded-xl dark:text-white font-bold hover:opacity-50 ease-linear duration-150"
+              class="flex items-center justify-center uppercase text-xs bg-violet-700 py-2 px-6 rounded-xl dark:text-white font-bold hover:opacity-50 ease-linear duration-150"
             >
               Generate
             </router-link>

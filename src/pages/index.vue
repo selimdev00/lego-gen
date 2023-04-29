@@ -48,6 +48,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  overflow: hidden;
 
   &__images {
     display: grid;

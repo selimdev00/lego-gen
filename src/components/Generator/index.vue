@@ -88,7 +88,7 @@ initCharacter();
 </script>
 
 <template>
-  <div>
+  <div class="px-4 py-8">
     <ChooseGender v-if="!gender" @choose="setGender" />
 
     <div v-else class="generator relative">
